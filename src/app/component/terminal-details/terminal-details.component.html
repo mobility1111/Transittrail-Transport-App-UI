@@ -1,0 +1,11 @@
+
+<div class="container mt-5">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{ terminal?.name }}</h5>
+        <p class="card-text">{{ terminal?.location }}</p>
+        <a [routerLink]="['/transport-lines', terminal?.id]" class="btn btn-primary">See Transport Lines</a>
+      </div>
+    </div>
+  </div>
+  

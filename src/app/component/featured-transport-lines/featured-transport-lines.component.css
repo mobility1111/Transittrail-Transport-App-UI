@@ -1,0 +1,14 @@
+
+.hover-effect {
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  }
+  .hover-effect:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  }
+  .card-title {
+    font-weight: 600;
+  }
+  .card-text {
+    color: #6c757d;
+  }

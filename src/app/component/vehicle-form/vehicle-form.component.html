@@ -1,0 +1,83 @@
+
+<div class="container mt-5">
+    <h2>Add Vehicle</h2>
+    <form #vehicleForm="ngForm" (ngSubmit)="submit()">
+      <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" class="form-control" id="name" [(ngModel)]="vehicle.name" name="name" required>
+      </div>
+      <div class="mb-3">
+        <label for="type" class="form-label">Type</label>
+        <input type="text" class="form-control" id="type" [(ngModel)]="vehicle.type" name="type" required>
+      </div>
+      <div class="mb-3">
+        <label for="capacity" class="form-label">Capacity</label>
+        <input type="number" class="form-control" id="capacity" [(ngModel)]="vehicle.capacity" name="capacity" required>
+      </div>
+      <div class="mb-3">
+        <label for="amenities" class="form-label">Amenities</label>
+        <input type="text" class="form-control" id="amenities" [(ngModel)]="vehicle.amenities" name="amenities">
+      </div>
+      <div class="mb-3">
+        <label for="available" class="form-label">Available</label>
+        <input type="checkbox" class="form-check-input" id="available" [(ngModel)]="vehicle.available" name="available">
+      </div>
+      <div class="mb-3">
+        <label for="imageUrl" class="form-label">Image URL</label>
+        <input type="text" class="form-control" id="imageUrl" [(ngModel)]="vehicle.imageUrl" name="imageUrl">
+      </div>
+      <button type="submit" class="btn btn-primary">Add</button>
+    </form>
+  </div>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+<div class="container mt-5">
+    <h2>{{ isEditMode ? 'Edit Vehicle' : 'Add Vehicle' }}</h2>
+    <form #vehicleForm="ngForm" (ngSubmit)="submit()">
+      <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" class="form-control" id="name" [(ngModel)]="vehicle.name" name="name" required>
+      </div>
+      <div class="mb-3">
+        <label for="type" class="form-label">Type</label>
+        <input type="text" class="form-control" id="type" [(ngModel)]="vehicle.type" name="type" required>
+      </div>
+      <div class="mb-3">
+        <label for="capacity" class="form-label">Capacity</label>
+        <input type="number" class="form-control" id="capacity" [(ngModel)]="vehicle.capacity" name="capacity" required>
+      </div>
+      <div class="mb-3">
+        <label for="amenities" class="form-label">Amenities</label>
+        <input type="text" class="form-control" id="amenities" [(ngModel)]="vehicle.amenities" name="amenities">
+      </div>
+      <div class="mb-3">
+        <label for="available" class="form-label">Available</label>
+        <input type="checkbox" class="form-check-input" id="available" [(ngModel)]="vehicle.available" name="available">
+      </div>
+      <div class="mb-3">
+        <label for="imageUrl" class="form-label">Image URL</label>
+        <input type="text" class="form-control" id="imageUrl" [(ngModel)]="vehicle.imageUrl" name="imageUrl">
+      </div>
+      <button type="submit" class="btn btn-primary">{{ isEditMode ? 'Update' : 'Add' }}</button>
+    </form>
+  </div>
+   -->

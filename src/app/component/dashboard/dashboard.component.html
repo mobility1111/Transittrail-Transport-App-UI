@@ -1,0 +1,222 @@
+<!-- Hero Section -->
+<!-- <section class="hero-section" id="home" style="background-image: url('../assets/images/hero/hero2.jpg'); background-size: cover; background-position: center center; height: 100vh;">
+    <div class="hero-content">
+      <h1 class="hero-title">Your Interstate Travel Companion</h1>
+      <p class="hero-subtitle">Compare prices, book tickets, and travel with ease across Nigeria.</p>
+      <a routerLink="/rooutes" class="cta-button">Start Your Journey</a>
+    </div>
+    <div class="hero-overlay"></div>
+  </section> -->
+  
+  <section id="home">
+    <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="../assets/images/hero/hero1.jpg" class="d-block w-100" alt="Hero 1">
+          <div class="carousel-caption">
+            <h1 class="carousel-title">Your Interstate Travel Companion</h1>
+            <p class="carousel-subtitle">Compare prices, book tickets, and travel with ease across Nigeria.</p>
+            <a routerLink="/rooutes" class="cta-button">Start Your Journey</a>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="../assets/images/hero/hero2.jpg" class="d-block w-100" alt="Hero 2">
+          <div class="carousel-caption">
+            <h1 class="carousel-title">Explore New Destinations</h1>
+            <p class="carousel-subtitle">Discover the beauty of Nigeria from the comfort of your seat.</p>
+            <a routerLink="/rooutes" class="cta-button">Find Your Route</a>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="../assets/images/hero/Ad2.jpg" class="d-block w-100" alt="Hero 3">
+          <div class="carousel-caption">
+            <h1 class="carousel-title">Book with Confidence</h1>
+            <p class="carousel-subtitle">Secure your travel plans with trusted transport lines.</p>
+            <a routerLink="/selector" class="cta-button">Book Now</a>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </section>
+
+  <app-transports></app-transports>
+
+  <app-route-selector></app-route-selector>
+
+<!-- Search and Compare Section -->
+<section class="info-section" id="services">
+    <div class="container">
+        <h2 class="section-title">Explore Our Transport Services</h2>
+        <div class="info-grid">
+            <a routerLink="/search" class="info-item">
+                <div class="info-icon">
+                  <i class="bi bi-search"></i>
+                </div>
+                <div class="info-content">
+                    <h3>Search for Routes</h3>
+                    <p>Find the best routes between cities, compare travel options, and choose the one that suits you best.</p>
+                </div>
+            </a>
+            <a routerLink="/terminals" class="info-item">
+                <div class="info-icon">
+                    <i class="bi bi-building"></i>
+                </div>
+                <div class="info-content">
+                    <h3>See Terminals</h3>
+                    <p>Locate our terminals across Nigeria and get detailed information about each one.</p>
+                </div>
+            </a>
+            <!-- <a href="#vehicles-prices" class="info-item">
+                <div class="info-icon">
+                    <i class="bi bi-truck"></i>
+                </div>
+                <div class="info-content">
+                    <h3>List of Vehicles with Prices</h3>
+                    <p>View our fleet of vehicles, including prices and features, to make an informed decision.</p>
+                </div>
+            </a>
+            <a href="#compare-prices" class="info-item">
+                <div class="info-icon">
+                    <i class="bi bi-wallet"></i>
+                </div>
+                <div class="info-content">
+                    <h3>Compare Prices</h3>
+                    <p>Check the prices of different transport lines and choose the best option for your budget.</p>
+                </div>
+            </a> -->
+            <a routerLink="/rooutes" class="info-item">
+                <div class="info-icon">
+                    <i class="bi bi-credit-card"></i>
+                </div>
+                <div class="info-content">
+                    <h3>Book Your Ticket</h3>
+                    <p>Book your tickets instantly with our easy-to-use booking system and secure payment options.</p>
+                </div>
+            </a>
+            <!-- <a href="#customer-support" class="info-item">
+                <div class="info-icon">
+                    <i class="bi bi-people"></i>
+                </div>
+                <div class="info-content">
+                    <h3>Customer Support</h3>
+                    <p>Get help and support for any issues or inquiries you might have regarding your travel plans.</p>
+                </div>
+            </a>
+            <a href="#special-offers" class="info-item">
+                <div class="info-icon">
+                    <i class="bi bi-gift"></i>
+                </div>
+                <div class="info-content">
+                    <h3>Special Offers</h3>
+                    <p>Take advantage of special offers and discounts on selected routes and services.</p>
+                </div>
+            </a> -->
+            <a href="#travel-insurance" class="info-item">
+                <div class="info-icon">
+                    <i class="bi bi-shield"></i>
+                </div>
+                <div class="info-content">
+                    <h3>Travel Insurance</h3>
+                    <p>Secure your trip with our travel insurance options for a worry-free journey.</p>
+                </div>
+            </a>
+        </div>
+    </div>
+</section>
+
+
+<!-- Features Section -->
+<section class="features-section">
+  <div class="container">
+      <h2 class="section-title">Why Choose Transittrail?</h2>
+      <div class="features-grid">
+          <div class="feature-card" [routerLink]="['/rooutes']" style="cursor: pointer;">
+              <i class="bi bi-cash-stack feature-icon"></i>
+              <h4>Real-time Price Comparison</h4>
+              <p>Compare prices across multiple transport lines instantly.</p>
+          </div>
+          <div class="feature-card" [routerLink]="['/vehicles']" style="cursor: pointer;">
+              <i class="bi bi-truck feature-icon"></i>
+              <h4>Diverse Vehicle Options</h4>
+              <p>Choose from a wide range of vehicles for your journey.</p>
+          </div>
+          <div class="feature-card" [routerLink]="['/chart']" style="cursor: pointer;">
+              <i class="bi bi-clock-history feature-icon"></i>
+              <h4>Historical Data Access</h4>
+              <p>View and analyze past travel rates and trends.</p>
+          </div>
+      </div>
+  </div>
+</section>
+
+
+
+<!-- Call-to-Action Section -->
+<section class="cta-section text-center py-5">
+    <div class="container">
+      <h2 class="cta-title mb-4">Ready to Start Your Journey?</h2>
+      <p class="cta-subtitle mb-4">Sign up now and get exclusive deals on your first booking!</p>
+      <a routerLink="/rooutes" class="cta-button btn btn-primary btn-lg">Sign Up Today</a>
+    </div>
+  </section>
+  
+
+<!-- Advertisement Section -->
+<section class="ad-section py-5">
+    <div class="container">
+      <h2 class="section-title text-center mb-5">Featured Offers</h2>
+      <div id="adCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="ad-card card">
+              <img src="assets/images/hero/Ad1.jpg" class="card-img-top" alt="Ad 1">
+              <div class="card-img-overlay d-flex flex-column justify-content-center text-center">
+                <h5 class="card-title text-white">Special Discount</h5>
+                <p class="card-text text-white">Get 20% off on your next interstate trip!</p>
+                <a href="#" class="ad-button btn btn-primary">Learn More</a>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="ad-card card">
+              <img src="assets/images/hero/Ad2.jpg" class="card-img-top" alt="Ad 2">
+              <div class="card-img-overlay d-flex flex-column justify-content-center text-center">
+                <h5 class="card-title text-white">Holiday Special</h5>
+                <p class="card-text text-white">Save 30% on holiday bookings!</p>
+                <a href="#" class="ad-button btn btn-primary">Learn More</a>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="ad-card card">
+              <img src="assets/images/hero/Ad3.jpg" class="card-img-top" alt="Ad 3">
+              <div class="card-img-overlay d-flex flex-column justify-content-center text-center">
+                <h5 class="card-title text-white">Early Bird Offer</h5>
+                <p class="card-text text-white">Book early and get 15% off!</p>
+                <a href="#" class="ad-button btn btn-primary">Learn More</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#adCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#adCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+  </section>
+  
+  
+  

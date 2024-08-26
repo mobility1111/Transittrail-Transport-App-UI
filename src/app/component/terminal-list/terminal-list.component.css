@@ -1,0 +1,25 @@
+
+.table-container {
+    background-color: #f8f9fa;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  .table th, .table td {
+    vertical-align: middle;
+  }
+  .table th {
+    background-color: #343a40;
+    color: #ffffff;
+  }
+  .btn-custom {
+    display: flex;
+    justify-content: space-between;
+  }
+  .btn-custom .btn {
+    flex: 1;
+    margin-right: 0.5rem;
+  }
+  .btn-custom .btn:last-child {
+    margin-right: 0;
+  }

@@ -1,0 +1,75 @@
+.header {
+  color: #373af5; /* Green color */
+}
+
+.header i {
+  font-size: 2rem;
+  display: block;
+  margin: 0 auto 10px;
+}
+
+.header h4 {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.header p {
+  margin-bottom: 0;
+  font-size: 1rem;
+  color: #373af5; /* Ensure consistency in color */
+}
+
+/* Style for the form container */
+.compact-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px;
+  max-width: 800px; /* Adjust the maximum width as needed */
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #f8f9fa; /* Light background */
+}
+
+/* Style for form labels */
+.form-group label {
+  font-weight: bold;
+}
+
+/* Style for form inputs and selects */
+.form-control {
+  width: 100%;
+  padding: 8px;
+  margin-top: 8px;
+  margin-bottom: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.form-select {
+  border-width: 2px;
+}
+
+/* Style for the submit button */
+button.btn-success {
+  background-color: #373af5;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.btn-success:hover {
+  background-color: #218838;
+}
+
+/* Style for the canvas element */
+canvas {
+  margin-top: 20px;
+  width: 100%;
+}

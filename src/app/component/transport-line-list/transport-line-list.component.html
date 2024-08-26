@@ -1,0 +1,28 @@
+<div class="container mt-5">
+  <h2>Transport Lines</h2>
+  <a routerLink="/add-transport-line" class="btn btn-primary mb-3">Add Transport Line</a>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Image</th>
+        <th>Terminal</th>  <!-- Add this column header -->
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let transportLine of transportLines">
+        <td>{{ transportLine.name }}</td>
+        <td>{{ transportLine.description }}</td>
+        <td><img [src]="transportLine.imageUrl" alt="{{ transportLine.name }}" width="50"></td>
+        <td>{{ transportLine.terminalName }}</td>  <!-- Add this column -->
+        <td>
+          <a [routerLink]="['/edit-transport-line', transportLine.id]" class="btn btn-sm btn-primary">Edit</a>
+          <!-- <button class="btn btn-sm btn-danger" (click)="deleteTransportLine(transportLine.id)">Delete</button> -->
+          <button class="btn btn-sm btn-danger">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

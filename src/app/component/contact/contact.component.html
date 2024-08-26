@@ -1,0 +1,89 @@
+
+<div class="container py-5 mt-5">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="contact-page-info mx-3">
+          <h2>Contact Info</h2>
+          <div class="fs-5 mt-5 mb-3">Location</div>
+          <div class="contact-page-info-item">
+            <small class="fw-bold text-uppercase">Store</small>
+            <div class="fs-5">
+              <p>148 Dr.Omon Ebuhomenye Str.,<br>
+                Off Abiodun Akomi Street, <br>
+                Off Admiralty Way Lekki Phase1, Lagos Nig. </p>
+              <p><a href="tel:(+005) 5896 72 78 79">09031578361</a></p>
+              <p><a href="transittrailtransport@gmail.com">transittrailtransport@gmail.com</a></p>
+            </div>
+          </div>
+          <div class="contact-page-info-item">
+            <!-- <small class="fw-bold text-uppercase">Warehouse</small>
+            <div class="fs-5"> -->
+              <!-- <p>172 Richmond Hill Ave St, Stamford, NY 90002, USA</p> -->
+              <p><a href="tel:08234270892">08134170891</a></p>
+            <!-- </div> -->
+          </div>
+        </div>
+      </div>
+      <div class="col-md-8 border-start">
+        <div class="ms-md-5 ps-md-5">
+          <h2>Drop Us A Line</h2>
+          <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="mb-3">
+                  <label for="contact-name" class="form-label">Your Name *</label>
+                  <input type="text" id="contact-name" class="form-control" formControlName="name" placeholder="Your Name *">
+                  <div *ngIf="contactForm.get('name')?.invalid && contactForm.get('name')?.touched" class="text-danger">
+                    Please enter your name.
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="mb-3">
+                  <label for="contact-email" class="form-label">Your Email *</label>
+                  <input type="email" id="contact-email" class="form-control" formControlName="email" placeholder="Your Email *">
+                  <div *ngIf="contactForm.get('email')?.invalid && contactForm.get('email')?.touched" class="text-danger">
+                    Please enter a valid email address.
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="mb-3">
+                  <label for="contact-phone" class="form-label"></label>
+                  <input type="text" id="contact-phone" class="form-control" formControlName="phone" placeholder="Your Phone">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="mb-3">
+                  <label for="contact-subject" class="form-label"></label>
+                  <input type="text" id="contact-subject" class="form-control" formControlName="subject" placeholder="Subject (optional)">
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="mb-3">
+                  <label for="contact-message" class="form-label">Message *</label>
+                  <textarea id="contact-message" class="form-control" formControlName="content" rows="6" placeholder="Write your message here"></textarea>
+                  <div *ngIf="contactForm.get('content')?.invalid && contactForm.get('content')?.touched" class="text-danger">
+                    Please enter your message.
+                  </div>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="mt-4">
+                  <button type="submit" class="btn btn-success">Send Message</button>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="contact-form-group mt-4">
+                  <div class="contact-message contact-success-message" *ngIf="successMessage">{{ successMessage }}</div>
+                  <div class="contact-message contact-error-message" *ngIf="errorMessage">{{ errorMessage }}</div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <app-about-us></app-about-us>

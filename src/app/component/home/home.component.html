@@ -1,0 +1,102 @@
+
+<!-- home.component.html -->
+<div class="bg-light py-5">
+    <div class="container">
+      <button (click)="logout()" class="btn btn-danger">Logout</button>
+      <div class="row mb-4">
+        <div class="col-md-6">
+          <h1>Welcome to TransportX</h1>
+          <p class="lead">Your one-stop solution for seamless transportation.</p>
+        </div>
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Quick Search</h5>
+              <form [formGroup]="quickSearchForm" (ngSubmit)="onQuickSearch()">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="mb-3">
+                      <label for="sourceTerminal" class="form-label">Source Terminal</label>
+                      <input type="text" class="form-control" id="sourceTerminal" formControlName="sourceTerminal" placeholder="Enter source terminal">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="mb-3">
+                      <label for="destinationTerminal" class="form-label">Destination Terminal</label>
+                      <input type="text" class="form-control" id="destinationTerminal" formControlName="destinationTerminal" placeholder="Enter destination terminal">
+                    </div>
+                  </div>
+                </div>
+                <div class="text-end">
+                  <button type="submit" class="btn btn-primary">Search</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div class="row mb-4">
+        <div class="col-12">
+          <div class="banner">
+            <img src="https://via.placeholder.com/1200x300?text=Banner" class="img-fluid" alt="Banner">
+          </div>
+        </div>
+      </div>
+  
+      <div class="row">
+        <div class="col-md-6 mb-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Popular Routes</h5>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item" *ngFor="let route of popularRoutes">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <span>{{ route.source }} to {{ route.destination }}</span>
+                    <button class="btn btn-sm btn-primary">View</button>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 mb-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Recent Bookings</h5>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item" *ngFor="let booking of recentBookings">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <span>{{ booking.route }} ({{ booking.date | date }})</span>
+                    <span class="badge bg-success">{{ booking.status }}</span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <div class="small-banner">
+            <img src="https://via.placeholder.com/300x200?text=Small+Banner" class="img-fluid" alt="Small Banner">
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="small-banner">
+            <img src="https://via.placeholder.com/300x200?text=Small+Banner" class="img-fluid" alt="Small Banner">
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="small-banner">
+            <img src="https://via.placeholder.com/300x200?text=Small+Banner" class="img-fluid" alt="Small Banner">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <ul *ngFor="let user of users">
+    <li>{{user.userName}}</li>
+  </ul>

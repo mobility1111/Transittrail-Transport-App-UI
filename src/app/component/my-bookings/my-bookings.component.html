@@ -1,0 +1,64 @@
+<!-- src/app/component/my-bookings/my-bookings.component.html -->
+<div class="container mt-5">
+  <div class="row mb-4">
+    <div class="col">
+      <h2 class="display-4 text-primary">
+        <i class="bi bi-journal-text me-2"></i>My Bookings
+      </h2>
+      <p class="lead text-muted">View and manage your travel arrangements</p>
+    </div>
+  </div>
+
+  <div *ngIf="error" class="alert alert-danger shadow-lg rounded-4 fade-in mb-4">
+    <i class="bi bi-exclamation-triangle-fill me-2"></i>{{ error }}
+  </div>
+
+  <div *ngIf="bookings.length === 0 && !error" class="alert alert-info shadow-lg rounded-4 fade-in mb-4">
+    <i class="bi bi-info-circle-fill me-2"></i>No bookings found. Start planning your next trip!
+  </div>
+
+  <div *ngIf="bookings.length > 0" class="card shadow-lg rounded-4 fade-in overflow-hidden">
+    <div class="card-header bg-gradient text-white py-3">
+      <h5 class="mb-0"><i class="bi bi-list-ul me-2"></i>Your Booking History</h5>
+    </div>
+    <div class="card-body p-0">
+      <div class="table-responsive">
+        <table class="table table-hover table-striped mb-0">
+          <thead class="table-light">
+            <tr>
+              <th class="text-uppercase fw-bold">Booking ID</th>
+              <th class="text-uppercase fw-bold">Origin Terminal</th>
+              <th class="text-uppercase fw-bold">Destination Terminal</th>
+              <th class="text-uppercase fw-bold">Vehicle Type</th>
+              <th class="text-uppercase fw-bold">Amount</th>
+              <th class="text-uppercase fw-bold">Status</th>
+              <th class="text-uppercase fw-bold">Departure Date</th>
+              <th class="text-uppercase fw-bold">Seat Quantity</th>
+              <th class="text-uppercase fw-bold">Booking Date</th>
+              <th class="text-uppercase fw-bold">Actions</th> <!-- New Actions Column -->
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let booking of bookings">
+              <td><span class="badge bg-secondary">{{ booking.id }}</span></td>
+              <td><i class="bi bi-signpost me-2 text-info"></i>{{ booking.originTerminalName }}</td>
+              <td><i class="bi bi-signpost me-2 text-info"></i>{{ booking.destinationTerminalName }}</td>
+              <td><i class="bi bi-car-front me-2 text-success"></i>{{ booking.vehicleType }}</td>
+              <td><i class="bi bi-cash-coin me-2 text-warning"></i>{{ booking.amount | currency:'NGN' }}</td>
+              <td>{{ booking.status }}</td>
+              <td>{{ booking.departureDate ? (booking.departureDate | date:'medium') : 'N/A' }}</td>
+              <td>{{ booking.seatQuantity }}</td>
+              <td>{{ booking.bookingDate ? (booking.bookingDate | date:'medium') : 'N/A' }}</td>
+              <td>
+                <!-- View Details Button -->
+                <button class="btn btn-primary btn-sm" (click)="viewBookingDetails(booking.id)">
+                  View Details
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

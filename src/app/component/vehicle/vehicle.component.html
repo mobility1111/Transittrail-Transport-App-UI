@@ -1,0 +1,17 @@
+<div class="container mt-5">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <h2 class="text-primary"><i class="bi bi-truck"></i> Vehicles</h2>
+    </div>
+    <div class="row">
+      <div class="col-md-4" *ngFor="let vehicle of vehicles">
+        <div class="card mb-4">
+          <div class="card-body">
+            <h5 class="card-text">Type: {{ vehicle.type }}</h5>
+            <p class="card-text">Capacity: {{ vehicle.capacity }}</p>
+            <p class="card-text">Price: NGN {{ vehicle.rate | number:'1.2-2'}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

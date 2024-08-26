@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h2 class="text-center my-4">Featured Routes</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div *ngIf="featuredRooutes.length > 0">
+        <div class="col-md-4" *ngFor="let rooute of featuredRooutes">
+          <div class="card mb-4">
+            <div class="card-body">
+              <h5 class="card-title">{{ rooute.transportLineName }}</h5>
+              <p class="card-text">
+                <strong>Origin Terminal:</strong> {{ rooute.originTerminalName }}<br>
+                <strong>Destination Terminal:</strong> {{ rooute.destinationTerminalName }}<br>
+                <strong>Vehicle Type:</strong> {{ rooute.vehicleType }}<br>
+                <strong>Departure Time:</strong> {{ rooute.departureTime | date: 'short' }}<br>
+                <strong>Arrival Time:</strong> {{ rooute.arrivalTime | date: 'short' }}<br>
+                <strong>Rate:</strong> {{ rooute.rate | currency }}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="featuredRooutes.length === 0" class="col-12">
+        <p class="text-center">No featured rooutes available.</p>
+      </div>
+    </div>
+  </div>
+  

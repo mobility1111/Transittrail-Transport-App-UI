@@ -1,0 +1,199 @@
+<div class="container mt-5">
+  <h2>Booking Form</h2>
+  <form [formGroup]="bookingForm" (ngSubmit)="initiatePayment()">
+    <div class="mb-3">
+      <label for="amount" class="form-label">Amount</label>
+      <input type="number" class="form-control" id="amount" formControlName="amount" readonly>
+      <div *ngIf="bookingForm.get('amount')?.invalid && bookingForm.get('amount')?.touched" class="text-danger">
+        Please enter the exact amount you're paying...
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="email" class="form-label">Email</label>
+      <input type="email" class="form-control" id="email" formControlName="email" placeholder="Enter email">
+      <div *ngIf="bookingForm.get('email')?.invalid && bookingForm.get('email')?.touched" class="text-danger">
+        Please enter a valid email address.
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="paymentType" class="form-label">Payment Type</label>
+      <input type="text" class="form-control" id="paymentType" formControlName="paymentType" readonly>
+    </div>
+
+    <ng-container *ngIf="bookingForm.get('paymentType')?.value === 'booking'">
+      <div class="mb-3">
+        <label for="routeDescription" class="form-label">Route</label>
+        <input type="text" class="form-control" id="routeDescription" formControlName="route" readonly>
+      </div>
+      <div class="mb-3">
+        <label for="fullName" class="form-label">Full Name</label>
+        <input type="text" class="form-control" id="fullName" formControlName="fullName" placeholder="Enter full name">
+        <div *ngIf="bookingForm.get('fullName')?.invalid && bookingForm.get('fullName')?.touched" class="text-danger">
+          Please enter your full name.
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="phoneNumber" class="form-label">Phone Number</label>
+        <input type="tel" class="form-control" id="phoneNumber" formControlName="phoneNumber" placeholder="Enter phone number">
+        <div *ngIf="bookingForm.get('phoneNumber')?.invalid && bookingForm.get('phoneNumber')?.touched" class="text-danger">
+          Please enter a valid phone number.
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="transportLineName" class="form-label">Transport Line Name</label>
+        <input type="text" class="form-control" id="transportLineName" formControlName="transportLineName" readonly>
+      </div>
+      <div class="mb-3">
+        <label for="originTerminalName" class="form-label">Origin Terminal</label>
+        <input type="text" class="form-control" id="originTerminalName" formControlName="originTerminalName" readonly>
+      </div>
+      <div class="mb-3">
+        <label for="destinationTerminalName" class="form-label">Destination Terminal</label>
+        <input type="text" class="form-control" id="destinationTerminalName" formControlName="destinationTerminalName" readonly>
+      </div>
+      <div class="mb-3">
+        <label for="vehicleType" class="form-label">Vehicle Type</label>
+        <input type="text" class="form-control" id="vehicleType" formControlName="vehicleType" readonly>
+      </div>
+      <div class="mb-3">
+        <label for="departureDate" class="form-label">Departure Date</label>
+        <input type="date" class="form-control" id="departureDate" formControlName="departureDate" readonly>
+      </div>
+      <div class="mb-3">
+        <label for="seatQuantity" class="form-label">Seat Quantity</label>
+        <input type="number" class="form-control" id="seatQuantity" formControlName="seatQuantity" readonly>
+      </div>
+    </ng-container>
+
+    <button type="submit" class="btn btn-primary" [disabled]="bookingForm.invalid || bookingInProgress">Pay Now</button>
+    <div *ngIf="bookingError" class="text-danger mt-3">{{ bookingError }}</div>
+  </form>
+</div>
+
+
+
+
+
+
+
+<!-- <div class="container mt-5">
+  <h2>Booking Form</h2>
+  <form [formGroup]="bookingForm" (ngSubmit)="initiatePayment()">
+    <div class="mb-3">
+      <label for="amount" class="form-label">Amount</label>
+      <input type="number" class="form-control" id="amount" formControlName="amount" placeholder="Enter amount" readonly>
+      <div *ngIf="bookingForm.get('amount')?.invalid && bookingForm.get('amount')?.touched" class="text-danger">
+        Please enter the exact amount you're paying...
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="email" class="form-label">Email</label>
+      <input type="email" class="form-control" id="email" formControlName="email" placeholder="Enter email">
+      <div *ngIf="bookingForm.get('email')?.invalid && bookingForm.get('email')?.touched" class="text-danger">
+        Please enter a valid email address.
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="paymentType" class="form-label">Payment Type</label>
+      <input type="text" class="form-control" id="paymentType" formControlName="paymentType" readonly>
+    </div>
+    <div *ngIf="bookingForm.get('paymentType')?.value === 'booking'">
+      <div class="mb-3">
+        <label for="routeDescription" class="form-label">Route</label>
+        <input type="text" class="form-control" id="routeDescription" [value]="routeDescription" readonly>
+      </div>
+      <div class="mb-3">
+        <label for="fullName" class="form-label">Full Name</label>
+        <input type="text" class="form-control" id="fullName" formControlName="fullName" placeholder="Enter full name">
+        <div *ngIf="bookingForm.get('fullName')?.invalid && bookingForm.get('fullName')?.touched" class="text-danger">
+          Please enter your full name.
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="phoneNumber" class="form-label">Phone Number</label>
+        <input type="tel" class="form-control" id="phoneNumber" formControlName="phoneNumber" placeholder="Enter phone number">
+        <div *ngIf="bookingForm.get('phoneNumber')?.invalid && bookingForm.get('phoneNumber')?.touched" class="text-danger">
+          Please enter a valid phone number.
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="transportLineName" class="form-label">Transport Line Name</label>
+        <input type="text" class="form-control" id="transportLineName" formControlName="transportLineName">
+      </div>
+      <div class="mb-3">
+        <label for="originTerminalName" class="form-label">Origin Terminal</label>
+        <input type="text" class="form-control" id="originTerminalName" formControlName="originTerminalName" placeholder="Enter origin terminal name">
+        <div *ngIf="bookingForm.get('originTerminalName')?.invalid && bookingForm.get('originTerminalName')?.touched" class="text-danger">
+          Please enter the origin terminal name.
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="destinationTerminalName" class="form-label">Destination Terminal</label>
+        <input type="text" class="form-control" id="destinationTerminalName" formControlName="destinationTerminalName" placeholder="Enter destination terminal name">
+        <div *ngIf="bookingForm.get('destinationTerminalName')?.invalid && bookingForm.get('destinationTerminalName')?.touched" class="text-danger">
+          Please enter the destination terminal name.
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="vehicleType" class="form-label">Vehicle Type</label>
+        <input type="text" class="form-control" id="vehicleType" formControlName="vehicleType" readonly>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="bookingForm.invalid || bookingInProgress">Pay Now</button>
+    <div *ngIf="bookingError" class="text-danger mt-3">{{ bookingError }}</div>
+  </form>
+</div>
+
+ -->
+
+
+
+
+
+
+<!-- <div class="container mt-5">
+    <h2>Booking Form</h2>
+    <form [formGroup]="bookingForm" (ngSubmit)="submit()">
+        <div class="mb-3">
+            <label for="routeDescription" class="form-label">Route</label>
+            <input type="text" class="form-control" id="routeDescription" [value]="routeDescription" readonly>
+          </div>
+          
+      <div class="mb-3">
+        <label for="fullName" class="form-label">Full Name</label>
+        <input type="text" class="form-control" id="fullName" formControlName="fullName" placeholder="Enter full name" required>
+        <div *ngIf="bookingForm.get('fullName')?.invalid && bookingForm.get('fullName')?.touched" class="text-danger">
+          Please enter your full name.
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="phoneNumber" class="form-label">Phone Number</label>
+        <input type="tel" class="form-control" id="phoneNumber" formControlName="phoneNumber" placeholder="Enter phone number" required>
+        <div *ngIf="bookingForm.get('phoneNumber')?.invalid && bookingForm.get('phoneNumber')?.touched" class="text-danger">
+          Please enter a valid phone number.
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="emailAddress" class="form-label">Email Address</label>
+        <input type="email" class="form-control" id="emailAddress" formControlName="emailAddress" placeholder="Enter email address" required>
+        <div *ngIf="bookingForm.get('emailAddress')?.invalid && bookingForm.get('emailAddress')?.touched" class="text-danger">
+          Please enter a valid email address.
+        </div>
+      </div>
+   
+      <div class="mb-3">
+        <label for="transportLineName" class="form-label">Transport Line Name</label>
+        <input type="text" class="form-control" id="transportLineName" formControlName="transportLineName" readonly>
+      </div>
+      <div class="mb-3">
+        <label for="vehicleType" class="form-label">Vehicle Type</label>
+        <input type="text" class="form-control" id="vehicleType" formControlName="vehicleType" readonly>
+      </div>
+      <div class="mb-3">
+        <label for="rate" class="form-label">Rate</label>
+        <input type="number" class="form-control" id="rate" formControlName="rate" readonly>
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="bookingForm.invalid">Pay Now</button>
+    </form>
+  </div>
+   -->

@@ -1,0 +1,23 @@
+
+<div class="container my-5">
+    <h2 class="text-primary mb-4">Featured Transport Lines</h2>
+    
+    <div class="row" *ngIf="featuredTransportLines.length > 0">
+      <div class="col-md-4 mb-4" *ngFor="let line of featuredTransportLines">
+        <div class="card h-100 shadow-sm hover-effect">
+          <div class="card-body">
+            <h5 class="card-title text-truncate">{{ line.name }}</h5>
+            <p class="card-text">{{ line.vehicleType }}</p>
+          </div>
+          <div class="card-footer bg-transparent border-top-0">
+            <a href="#" class="btn btn-outline-primary btn-sm">Learn More</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="alert alert-info" *ngIf="featuredTransportLines.length === 0">
+      <i class="bi bi-info-circle-fill me-2"></i>No featured transport lines available at the moment.
+    </div>
+  </div>
+  

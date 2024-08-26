@@ -1,0 +1,59 @@
+
+
+.display-4 {
+  font-weight: 700;
+  color: #0056b3;
+}
+
+.lead {
+  font-size: 1.2rem;
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.card {
+  border: none;
+}
+
+.card-header {
+  background: linear-gradient(45deg, #007bff, #6610f2);
+}
+
+.table th {
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+}
+
+.table td {
+  vertical-align: middle;
+}
+
+.badge {
+  font-size: 0.85rem;
+  padding: 0.5em 0.8em;
+}
+
+.bi {
+  vertical-align: middle;
+}
+
+.alert {
+  border: none;
+}
+
+.alert-danger {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.alert-info {
+  background-color: #d1ecf1;
+  color: #0c5460;
+}

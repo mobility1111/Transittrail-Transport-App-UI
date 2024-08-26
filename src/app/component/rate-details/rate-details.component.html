@@ -1,0 +1,21 @@
+
+<!-- rate-details.component.html -->
+<div class="container mt-5" *ngIf="rate">
+    <h2 class="text-primary">Rate Details</h2>
+    <div class="card shadow-sm border-0">
+      <div class="card-header bg-primary text-white">
+        <h5 class="card-title mb-0">{{ rate.roouteName }}</h5>
+      </div>
+      <div class="card-body">
+        <div class="mb-3">
+          <p class="card-text"><strong>Transport Line:</strong> {{ rate.transportLineName }}</p>
+          <p class="card-text"><strong>Vehicle:</strong> {{ rate.vehicleName }}</p>
+          <p class="card-text"><strong>Price:</strong> {{ rate.price | currency }}</p>
+          <p class="card-text"><strong>Date:</strong> {{ rate.date | date:'shortDate' }}</p>
+        </div>
+        <button class="btn btn-success btn-lg" (click)="bookNow()">Book Now</button>
+      </div>
+    </div>
+  </div>
+  
+  

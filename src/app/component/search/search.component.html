@@ -1,0 +1,128 @@
+<!-- search.component.html -->
+<section class="py-5" style="background-color: rgb(11, 11, 12);">
+  <div class="search-container mt-5 mb-4">
+    <input
+      [(ngModel)]="searchValue"
+      placeholder="Search for terminals or rates..."
+      (input)="onSearchChange()"
+      class="form-control"
+    />
+  
+    <button (click)="onSearchChange()" class="btn btn-outline-success" type="button">
+      <i class="bi bi-search"></i>
+    </button>
+  </div>
+  
+  <!-- Display terminals -->
+  <div class="container mt-5" *ngIf="terminals && terminals.length > 0">
+    <div class="row mb-4">
+      <div class="col">
+        <h2 class="display-4 text-primary text-center">
+          <i class="bi bi-building me-2"></i>Terminals
+        </h2>
+        <p class="lead text-center text-white">Explore our available terminals</p>
+      </div>
+    </div>
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+      <div *ngFor="let terminal of terminals" class="col">
+        <div class="card h-100 terminal-card shadow-sm border-0 rounded-3 overflow-hidden">
+          <div class="card-body p-0">
+            <a [routerLink]="['/terminal-details', terminal.id]" class="text-decoration-none">
+              <div class="terminal-header p-3 bg-gradient text-white">
+                <h5 class="card-title mb-0">
+                  <i class="bi bi-shop me-2"></i>{{ terminal.name }}
+                </h5>
+              </div>
+              <div class="terminal-content p-3">
+                <p class="card-text">
+                  <i class="bi bi-geo-alt-fill me-2 text-danger"></i>{{ terminal.location }}
+                </p>
+              </div>
+            </a>
+          </div>
+          <div class="card-footer bg-transparent border-0 text-end">
+            <a [routerLink]="['/terminal-details', terminal.id]" class="btn btn-outline-primary btn-sm">
+              View Details <i class="bi bi-arrow-right ms-1"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pagination Controls for Terminals -->
+    <div class="d-flex justify-content-center mt-4">
+      <button class="btn btn-outline-secondary me-2" 
+              (click)="terminalCurrentPage = terminalCurrentPage - 1; loadTerminals()"
+              [disabled]="terminalCurrentPage === 1">
+        <i class="bi bi-chevron-left"></i> Previous
+      </button>
+      <span>Page {{ terminalCurrentPage }} of {{ terminalTotalPages }}</span>
+      <button class="btn btn-outline-secondary ms-2" 
+              (click)="terminalCurrentPage = terminalCurrentPage + 1; loadTerminals()"
+              [disabled]="terminalCurrentPage === terminalTotalPages">
+        Next <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </div>
+  
+  <!-- Display routes -->
+  <div class="container mt-5" *ngIf="rooutes && rooutes.length > 0">
+    <div class="row mb-4">
+      <div class="col text-center">
+        <h2 class="display-4 text-primary">
+          <i class="bi bi-signpost-split me-2"></i>Available Routes
+        </h2>
+        <p class="lead text-white">Explore our travel options</p>
+      </div>
+    </div>
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+      <div class="col" *ngFor="let rooute of rooutes">
+        <div class="card h-100 route-card shadow-lg border-0 rounded-4 overflow-hidden">
+          <div class="card-header bg-gradient text-white py-3">
+            <h5 class="card-title mb-0 text-primary">
+              <i class="bi bi-arrow-left-right me-2 text-primary"></i>
+              {{ rooute.originTerminalName }} to {{ rooute.destinationTerminalName }}
+            </h5>
+          </div>
+          <div class="card-body">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                <i class="bi bi-truck me-2 text-primary"></i>
+                <strong>Transport Line:</strong> {{ rooute.transportLineName }}
+              </li>
+              <li class="list-group-item">
+                <i class="bi bi-car-front me-2 text-success"></i>
+                <strong>Vehicle:</strong> {{ rooute.vehicleType }}
+              </li>
+              <li class="list-group-item">
+                <i class="bi bi-cash-coin me-2 text-success"></i>
+                <strong>Rate:</strong> 
+                <span class="badge bg-success ms-2">NGN {{ rooute.rate }}</span>
+              </li>
+            </ul>
+          </div>
+          <div class="card-footer bg-transparent border-0 text-center">
+            <a [routerLink]="['/rooutes', rooute.id]" class="btn btn-primary">
+              <i class="bi bi-info-circle me-2"></i>View Details
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pagination Controls for Routes -->
+    <div class="d-flex justify-content-center mt-4">
+      <button class="btn btn-outline-secondary me-2" 
+              (click)="routeCurrentPage = routeCurrentPage - 1; loadRooutes()"
+              [disabled]="routeCurrentPage === 1">
+        <i class="bi bi-chevron-left"></i> Previous
+      </button>
+      <span>Page {{ routeCurrentPage }} of {{ routeTotalPages }}</span>
+      <button class="btn btn-outline-secondary ms-2" 
+              (click)="routeCurrentPage = routeCurrentPage + 1; loadRooutes()"
+              [disabled]="routeCurrentPage === routeTotalPages">
+        Next <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </div>
+</section>

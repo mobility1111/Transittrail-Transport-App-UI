@@ -1,0 +1,196 @@
+<!-- header.component.html -->
+<header>
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+    <div class="container">
+      <a class="navbar-brand" routerLink="/">
+        <img src="assets/images/logo/logo24.png" alt="Transtrail Logo" height="40" width="auto">
+      </a>
+      <div class="col-md-2 my-auto d-lg-none">
+      <a routerLink="/search" routerLinkActive="active" class="me-3">
+          <i class="bi bi-search p-3" style="font-size: 1.5rem; color: #3f2bf7;"></i>
+      </a>
+      <i class="bi bi-list" style="color: #3f2bf7; font-size: 32px; cursor: pointer;" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"></i>
+  </div>
+     
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/rooutes">Routes</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/terminals">Terminals</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/chart">Mine Data</a>
+          </li>
+          <li *ngIf="role === 'admin'"  class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle link-dark" href="#" id="adminDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="bi bi-tools"></i> ADMIN
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="adminDropdown">
+              <li>
+                <a  routerLink="/rate-form" class="dropdown-item">
+                  <i class="bi bi-cart-plus"></i> Add Rates
+                </a>
+              </li>
+              <li>
+                <a  routerLink="/add-transport-line" class="dropdown-item">
+                  <i class="bi bi-cart-plus"></i> Add Transportline
+                </a>
+              </li>
+              <li>
+                <a  routerLink="/add-terminal" class="dropdown-item">
+                  <i class="bi bi-cart-plus"></i> Add Terminal
+                </a>
+              </li>
+              <li>
+                <a  routerLink="/add-vehicle" class="dropdown-item">
+                  <i class="bi bi-cart-plus"></i>Add Vehicle
+                </a>
+              </li>
+              <li>
+                <a  routerLink="/add-rooute" class="dropdown-item">
+                  <i class="bi bi-cart-plus"></i>Add Rooute
+                </a>
+              </li>
+              <li>
+                <a routerLink="/payments" class="dropdown-item">
+                  <i class="bi bi-cart-plus"></i> All Payments
+                </a>
+              </li>
+              <li>
+                <a routerLink="/bokings" class="dropdown-item">
+                  <i class="bi bi-cart-plus"></i> All Bookings
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/contact">Contact</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav ms-lg-3">
+          <li class="nav-item">
+            <a routerLink="/search" class="btn btn-outline-primary rounded-circle me-3">
+              <i class="bi bi-search"></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a *ngIf="!isLoggedIn()" class="nav-link" routerLink="/login" style="cursor: pointer;">SignUp/Login</a>
+          </li>
+          <li class="nav-item dropdown" *ngIf="isLoggedIn">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Account
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" routerLink="/profile">Profile</a></li>
+              <li><a class="dropdown-item" routerLink="/my-bookings">My Bookings</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" (click)="logout()">Logout</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+
+<!-- sidebar -->
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+  <div class="offcanvas-header">
+    <a class="navbar-brand fs-4 fw-bold" routerLink="/dashboard">
+      <img src="assets/images/logo/logo24.png" alt="Transtrail Logo" height="40" width="auto">
+    </a>
+    <!-- <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button> -->
+  </div>
+  <div class="offcanvas-body">
+    <ul class="nav nav-pills flex-column mb-auto">
+      <li class="nav-item">
+        <a href="#" class="nav-link active" aria-current="page" style="color: #fff; background-color: #2083f5; border-radius: 5px;">
+          <i class="bi bi-house-door"></i> MENU
+        </a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/selector" class="nav-link link-dark">
+          <i class="bi bi-calendar-check me-1"></i> Book Now
+        </a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/rooutes" class="nav-link link-dark">
+          <i class="bi bi-map"></i> Routes
+        </a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/terminals" class="nav-link link-dark">
+          <i class="bi bi-geo-alt-fill"></i> Terminals
+        </a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/chart" class="nav-link link-dark">
+          <i class="bi bi-bar-chart-line"></i> Data Overview
+        </a>
+      </li>
+      <!-- <li class="nav-item">
+        <a routerLink="/subscription" class="nav-link link-dark">
+          <i class="bi bi-calendar-check"></i> Subscription
+        </a>
+      </li> -->
+      <!-- <li class="nav-item">
+        <a routerLink="/rate-form" class="nav-link link-dark">
+          <i class="bi bi-currency-exchange"></i> Add Rates
+        </a>
+      </li> -->
+      <!-- <li class="nav-item">
+        <a routerLink="/rates" class="nav-link link-dark">
+          <i class="bi bi-cash"></i> Rates
+        </a>
+      </li> -->
+      <!-- Admin-only links -->
+      <!-- <li class="nav-item" *ngIf="role === 'admin'">
+        <a routerLink="/manage-routes" class="nav-link link-dark">
+          <i class="bi bi-road"></i> ADMIN
+        </a>
+      </li> -->
+      <!-- <li class="nav-item" *ngIf="role === 'admin'">
+        <a routerLink="/manage-terminals" class="nav-link link-dark">
+          <i class="bi bi-building"></i> Manage Terminals
+        </a>
+      </li> -->
+      <!-- <li class="nav-item" *ngIf="role === 'admin'">
+        <a routerLink="/manage-vehicles" class="nav-link link-dark">
+          <i class="bi bi-truck"></i> Manage Vehicles
+        </a>
+      </li> -->
+      <li class="nav-item">
+        <a routerLink="/about" class="nav-link link-dark">
+          <i class="bi bi-info-circle"></i> About Us
+        </a>
+      </li>
+      <li class="nav-item">
+        <a *ngIf="!isLoggedIn()" class="nav-link link-dark" routerLink="/login">
+          <i  class="bi bi-person"></i>SignUp/Login
+        </a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/profile" class="nav-link link-dark">
+          <i class="bi bi-person"></i> Profile
+        </a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/contact" class="nav-link link-dark">
+          <i class="bi bi-telephone-fill"></i> Contact Us
+        </a>
+      </li>
+    </ul>
+    <div class="nav-item dropdown">
+      <a class="nav-link mx-2 dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Hello, {{fullName}}
+      </a>
+      <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <li><a routerLink="/my-bookings" class="dropdown-item text-danger" style="cursor: pointer;"><i class="bi bi-calendar-check me-1"></i>My Bookings</a></li>
+        <li><a class="dropdown-item text-danger" style="cursor: pointer;" (click)="logout()"><i class="bi bi-box-arrow-right"></i> Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+<div class="container mt-5">
+  <h2>Vehicles</h2>
+  <a routerLink="/add-vehicle" class="btn btn-primary mb-3">Add Vehicle</a>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Transport Line</th>  <!-- Add this column header -->
+        <th>Type</th>
+        <th>Capacity</th>
+        <th>Amenities</th>
+        <th>Available</th>
+        <th>Image</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let vehicle of vehicles">
+        <td>{{ vehicle.transportLineName }}</td>  <!-- Add this column -->
+        <td>{{ vehicle.type }}</td>
+        <td>{{ vehicle.capacity }}</td>
+        <td>{{ vehicle.amenities }}</td>
+        <td>{{ vehicle.available ? 'Yes' : 'No' }}</td>
+        <td><img [src]="vehicle.imageUrl" alt="{{ vehicle.type }}" width="50"></td>
+        <td>
+          <a [routerLink]="['/edit-vehicle', vehicle.id]" class="btn btn-sm btn-primary">Edit</a>
+          <button class="btn btn-sm btn-danger" (click)="deleteVehicle(vehicle.id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,27 @@
+
+<section id="pricing" class="pricing" data-aos="fade-up mt-4 mb-4">
+    <div class="container" style="padding: 40px;">
+  
+      <header class="section-header ">
+        <h2 class="justify-content-center">Subscription Plans</h2>
+        <p class="justify-content-center">Check our Pricing</p>
+      </header>
+  
+      <div class="row gy-4 justify-content-center" data-aos="fade-left">
+  
+        <div *ngFor="let subscriptionType of subscriptionTypes" class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="100">
+          <div class="box">
+            <h3 style="color: #07d5c0;">{{ subscriptionType.name }}</h3>
+            <div class="price"><sup>NGN</sup>{{ subscriptionType.price }}<span> / mo</span></div>
+           
+            <p>Description: {{ subscriptionType.description }}</p>
+            <p>Duration: {{ subscriptionType.durationInSeconds }} seconds</p>
+            <button (click)="subscribe(subscriptionType)" class="btn-buy">Subscribe</button>
+
+          </div>
+        </div>
+  
+      </div>
+    </div>
+  </section>
+  

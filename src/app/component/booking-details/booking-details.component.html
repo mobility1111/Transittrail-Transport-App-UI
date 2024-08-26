@@ -1,0 +1,73 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card shadow-sm" *ngIf="booking">
+        <div class="card-header bg-primary text-white">
+          <h2 class="mb-0">Booking Details</h2>
+        </div>
+        <div class="card-body">
+          <div class="row mb-4">
+            <div class="col-md-6">
+              <div class="booking-detail">
+                <h5 class="text-muted mb-1">Origin Terminal</h5>
+                <p class="fs-5">{{ booking.originTerminalName }}</p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="booking-detail">
+                <h5 class="text-muted mb-1">Destination Terminal</h5>
+                <p class="fs-5">{{ booking.destinationTerminalName }}</p>
+              </div>
+            </div>
+          </div>
+          <div class="row mb-4">
+            <div class="col-md-6">
+              <div class="booking-detail">
+                <h5 class="text-muted mb-1">Vehicle Type</h5>
+                <p class="fs-5">{{ booking.vehicleType }}</p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="booking-detail">
+                <h5 class="text-muted mb-1">Amount</h5>
+                <p class="fs-5 fw-bold">{{ booking.amount | currency:'NGN':'symbol':'1.2-2' }}</p>
+              </div>
+            </div>
+          </div>
+          <div class="row mb-4">
+            <div class="col-md-6">
+              <div class="booking-detail">
+                <h5 class="text-muted mb-1">Status</h5>
+                <p class="fs-5">{{booking.status}}</p> <!-- Use getStatusString to display status -->
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="booking-detail">
+                <h5 class="text-muted mb-1">Created At</h5>
+                <p class="fs-5">{{ booking.createdAt | date:'medium' }}</p>
+              </div>
+            </div>
+          </div>
+          <div class="row mb-4">
+            <div class="col-md-6">
+              <div class="booking-detail">
+                <h5 class="text-muted mb-1">Departure Date</h5>
+                <p class="fs-5">{{ booking.departureDate ? (booking.departureDate | date:'medium') : 'N/A' }}</p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="booking-detail">
+                <h5 class="text-muted mb-1">Seat Quantity</h5>
+                <p class="fs-5">{{ booking.seatQuantity }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="alert alert-danger mt-4 fade-in" *ngIf="error">
+        <i class="bi bi-exclamation-triangle-fill me-2"></i>{{ error }}
+      </div>
+    </div>
+  </div>
+</div>

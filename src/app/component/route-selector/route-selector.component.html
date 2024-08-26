@@ -1,0 +1,79 @@
+<div class="container mt-5">
+    <div class="card shadow-lg">
+      <div class="card-header bg-gradient text-primary">
+        <h2 class="text-center mb-0">Book Your Ticket Now</h2>
+      </div>
+      <div class="card-body">
+        <form [formGroup]="routeForm" (ngSubmit)="proceed()">
+          <div class="row g-4">
+            <!-- Origin Terminal -->
+            <div class="col-md-6">
+              <div class="form-floating">
+                <select class="form-select" id="originTerminal" formControlName="originTerminal">
+                  <option value="" disabled selected>Select origin</option>
+                  <option *ngFor="let terminal of terminals" [value]="terminal.id">{{ terminal.name }}</option>
+                </select>
+                <label for="originTerminal">Origin Terminal</label>
+              </div>
+            </div>
+  
+            <!-- Destination Terminal -->
+            <div class="col-md-6">
+              <div class="form-floating">
+                <select class="form-select" id="destinationTerminal" formControlName="destinationTerminal">
+                  <option value="" disabled selected>Select destination</option>
+                  <option *ngFor="let terminal of terminals" [value]="terminal.id">{{ terminal.name }}</option>
+                </select>
+                <label for="destinationTerminal">Destination Terminal</label>
+              </div>
+            </div>
+  
+            <!-- Transport Line -->
+            <div class="col-md-6">
+              <div class="form-floating">
+                <select class="form-select" id="transportLine" formControlName="transportLine">
+                  <option value="" disabled selected>Select transport line</option>
+                  <option *ngFor="let transportLine of transportLines" [value]="transportLine.id">{{ transportLine.name }}</option>
+                </select>
+                <label for="transportLine">Transport Line</label>
+              </div>
+            </div>
+  
+            <!-- Vehicle -->
+            <div class="col-md-6">
+              <div class="form-floating">
+                <select class="form-select" id="vehicle" formControlName="vehicle">
+                  <option value="" disabled selected>Select vehicle</option>
+                  <option *ngFor="let vehicle of vehicles" [value]="vehicle.id">{{ vehicle.type }}</option>
+                </select>
+                <label for="vehicle">Vehicle</label>
+              </div>
+            </div>
+  
+            <!-- Departure Date -->
+            <div class="col-md-6">
+              <div class="form-floating">
+                <input type="date" class="form-control" id="departureDate" formControlName="departureDate" [min]="minDate">
+                <label for="departureDate">Departure Date</label>
+              </div>
+            </div>
+  
+            <!-- Seat Quantity -->
+            <div class="col-md-6">
+              <div class="form-floating">
+                <input type="number" class="form-control" id="seatQuantity" formControlName="seatQuantity" min="1" max="10">
+                <label for="seatQuantity">Seat Quantity</label>
+              </div>
+            </div>
+          </div>
+  
+          <div class="text-center mt-4">
+            <button type="submit" class="btn btn-primary btn-lg">
+              <i class="bi bi-arrow-right-circle me-2"></i>Proceed
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  

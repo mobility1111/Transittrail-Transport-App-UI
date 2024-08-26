@@ -1,0 +1,59 @@
+<div class="container mt-5" *ngIf="rooute">
+  <div class="row justify-content-center">
+    <div class="col-lg-8">
+      <div class="card shadow-lg border-0 rounded-4 overflow-hidden">
+        <div class="card-header bg-gradient text-white py-4">
+          <h2 class="text-center mb-0 text-primary">
+            <i class="bi bi-map me-2 text-primary"></i>Route Details
+          </h2>
+        </div>
+        <div class="card-body p-4">
+          <div class="route-info mb-4">
+            <h3 class="text-primary mb-3">
+              <i class="bi bi-signpost-split me-2"></i>
+              {{ rooute.originTerminalName }} to {{ rooute.destinationTerminalName }}
+            </h3>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                <span><i class="bi bi-truck me-2"></i><strong>Transport Line:</strong></span>
+                <span class="badge bg-info rounded-pill">{{ rooute.transportLineName }}</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                <span><i class="bi bi-car-front me-2"></i><strong>Vehicle:</strong></span>
+                <span class="badge bg-secondary rounded-pill">{{ rooute.vehicleType }}</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                <span><i class="bi bi-cash-coin me-2"></i><strong>Price:</strong></span>
+                <span class="badge bg-success rounded-pill">NGN {{ rooute.rate | number:'1.2-2' }}</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Instructional Message -->
+          <div class="alert alert-info" *ngIf="!departureDate || !seatQuantity">
+            Please choose a departure date and seat quantity before booking or comparing.
+          </div>
+
+          <!-- New Input Fields for Departure Date and Seat Quantity -->
+          <div class="mb-4">
+            <label for="departureDate" class="form-label">Departure Date</label>
+            <input type="date" id="departureDate" class="form-control" [(ngModel)]="departureDate" required>
+          </div>
+          <div class="mb-4">
+            <label for="seatQuantity" class="form-label">Seat Quantity</label>
+            <input type="number" id="seatQuantity" class="form-control" [(ngModel)]="seatQuantity" min="1" required>
+          </div>
+
+          <div class="d-grid gap-2 d-md-flex justify-content-md-between">
+            <button class="btn btn-primary btn-lg flex-grow-1" (click)="bookNow()">
+              <i class="bi bi-calendar-check me-2"></i>Book Now
+            </button>
+            <button class="btn btn-outline-secondary btn-lg flex-grow-1" (click)="compareRates()">
+              <i class="bi bi-graph-up me-2"></i>Compare Rates
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

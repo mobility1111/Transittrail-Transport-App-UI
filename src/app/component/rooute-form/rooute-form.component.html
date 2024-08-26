@@ -1,0 +1,43 @@
+<div class="container mt-5">
+    <h2>Add Route</h2>
+    <form #roouteForm="ngForm" (ngSubmit)="submit()">
+      <div class="mb-3">
+        <label for="originTerminalId" class="form-label">Origin Terminal</label>
+        <select class="form-control" id="originTerminalId" [(ngModel)]="rooute.originTerminalId" name="originTerminalId" required>
+          <option *ngFor="let terminal of terminals" [value]="terminal.id">{{ terminal.name }}</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="destinationTerminalId" class="form-label">Destination Terminal</label>
+        <select class="form-control" id="destinationTerminalId" [(ngModel)]="rooute.destinationTerminalId" name="destinationTerminalId" required>
+          <option *ngFor="let terminal of terminals" [value]="terminal.id">{{ terminal.name }}</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="vehicleId" class="form-label">Vehicle</label>
+        <select class="form-control" id="vehicleId" [(ngModel)]="rooute.vehicleId" name="vehicleId" required>
+          <option *ngFor="let vehicle of vehicles" [value]="vehicle.id">{{ vehicle.name }}</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="transportLineId" class="form-label">Transport Line</label>
+        <select class="form-control" id="transportLineId" [(ngModel)]="rooute.transportLineId" name="transportLineId" required>
+          <option *ngFor="let transportLine of transportLines" [value]="transportLine.id">{{ transportLine.name }}</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="departureTime" class="form-label">Departure Time</label>
+        <input type="datetime-local" class="form-control" id="departureTime" [(ngModel)]="rooute.departureTime" name="departureTime" required>
+      </div>
+      <div class="mb-3">
+        <label for="arrivalTime" class="form-label">Arrival Time</label>
+        <input type="datetime-local" class="form-control" id="arrivalTime" [(ngModel)]="rooute.arrivalTime" name="arrivalTime" required>
+      </div>
+      <div class="mb-3">
+        <label for="rate" class="form-label">Rate</label>
+        <input type="number" class="form-control" id="rate" [(ngModel)]="rooute.rate" name="rate" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Add Route</button>
+    </form>
+  </div>
+  

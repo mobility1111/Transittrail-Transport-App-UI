@@ -1,0 +1,10 @@
+
+body {
+    overflow-x: hidden;
+  }
+
+.main-content {
+    margin-top: 100px; /* Adjust the margin-top as needed */
+    padding: 10px 18px;
+}
+
